@@ -2,8 +2,7 @@
 
 //Solution 1
 //Approach: Using hash map or JS object
-//Time: O(nlogn)
-//Space: O(n)
+//Time: O(nlogn) | Space: O(n)
 var topKFrequent = function(nums, k) {
     const map = {};
     for (let num of nums) {
