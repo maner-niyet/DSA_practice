@@ -58,7 +58,6 @@ var groupAnagrams = function(strs) {
             let charIndex = string.charCodeAt(j) - 97;
             charCount[charIndex]+=1;
         }
-        console.log(charCount)
         map[charCount] ? map[charCount].push(string) : map[charCount] = [string]
     }
     return Object.values(map);
