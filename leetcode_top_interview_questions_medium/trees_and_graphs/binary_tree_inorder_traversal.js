@@ -5,6 +5,7 @@
 
 var inorderTraversal = function(root) {
     let result = [];
+    
     function inorder(root) {
         if (!root) return;
         inorder(root.left);
@@ -20,15 +21,14 @@ var inorderTraversal = function(root) {
 //Time: O(n) | Space: O(n)
 
 var inorderTraversal = function(root) {
-    let result = [];
-    let stack = [];
+    const result = [];
+    const stack = [];
     let current = root;
     while (current || stack.length) {
         while (current) {
             stack.push(current)
             current = current.left
         }
-        
         current = stack.pop()
         result.push(current.val);
         current = current.right;
