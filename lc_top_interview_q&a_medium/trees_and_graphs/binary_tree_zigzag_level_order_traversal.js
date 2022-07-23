@@ -8,11 +8,9 @@ https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/ */
 function zigzagLevelOrder(root) {
     if (!root) return [];
     const result = [], queue = [root];
-        
     while (queue.length) {
         let level = [];
         let queueLength = queue.length;
-
         for (let i = 0; i < queueLength; i++) {
             let node = queue.pop();
             level.push(node.val);
@@ -21,14 +19,11 @@ function zigzagLevelOrder(root) {
         }
         result.push(level);
     }
-    
     for (let i = 1; i < result.length; i+=2) {
         result[i] = result[i].reverse();
     }
-    
     return result;
 }
-
 
 //Solution 2
 //Time: O(n) | Space: O(n)
@@ -38,7 +33,6 @@ function zigzagLevelOrder(root) {
     const result = [], 
         queue = [root];
     let zigzag = true;
-
     while (queue.length) {
         let level = [];
         let queueLength = queue.length;

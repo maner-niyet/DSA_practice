@@ -6,11 +6,9 @@ https://leetcode.com/problems/binary-tree-level-order-traversal/ */
 function levelOrderTraversal(root) {
     if (!root) return [];
     const result = [], queue = [root];
-        
     while (queue.length) {
         let level = [];
         let queueLength = queue.length;
-
         for (let i = 0; i < queueLength; i++) {
             let node = queue.pop();
             level.push(node.val);
