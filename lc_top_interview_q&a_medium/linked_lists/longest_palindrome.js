@@ -5,18 +5,18 @@ class Solution {
     maxPalindrome(node)
     {
         if (!node) return 0;
-       let current = node;
-       let prev = null;
-       let answer = 0;
-       while (current) {
+        let current = node;
+        let prev = null;
+        let answer = 0;
+        while (current) {
            let next = current.next;
            current.next = prev;
            answer = Math.max(answer, 2 * this.count(prev, next) + 1)
            answer = Math.max(answer, 2 * this.count(current, next))
            prev = current;
            current = next;
-       }
-       return answer
+        }
+        return answer
     }
     count(nodeA, nodeB) {
         let a = nodeA;
