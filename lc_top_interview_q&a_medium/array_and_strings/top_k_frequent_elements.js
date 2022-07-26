@@ -20,7 +20,7 @@ var topKFrequent = function(nums, k) {
 };
 
 //Solution 2 
-//Approach: B?ucket Sort 
+//Approach: Bucket Sort 
 //Time: O(n) | Space: O(n)
 
 var topKFrequent = function(nums, k) {
@@ -32,11 +32,9 @@ var topKFrequent = function(nums, k) {
     for (let num of nums) {
         map[num] ? map[num]++ : map[num] = 1;
     }
-
     for (let [key, value] of Object.entries(map)) {
         frequencies[value].push(key); 
     }
-  
     const result = [];
     for (let i = frequencies.length - 1; i >= 0; i--) {
         for (let num of frequencies[i]) {

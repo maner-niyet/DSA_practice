@@ -26,8 +26,6 @@ var getMaximumGold = function(grid) {
     }
     return maxGold;
 };
-
-
 function getGold(r, c, grid, visited) {
     const rowInbound = r >= 0 && r < grid.length;
     const colInbound = c >= 0 && c < grid[0].length;
