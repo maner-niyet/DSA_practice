@@ -4,22 +4,19 @@ In case of multiple subarrays, return the subarray which comes first on moving f
 
 //Approach: Sliding Window
 //Time: O(n) | Space: O(1)
-class Solution 
-{
-    subarraySum(arr, n, s)
-    {
-        let start = 0;
-        let runningSum = arr[0];
-        for (let end = 1; end <= n; end++) {
-            while(runningSum > s && start < end - 1) {
-                runningSum -= arr[start];
-                start++
-            }
-            if (runningSum === s) return [start + 1, end];
-            if (end < n) {
-                runningSum += arr[end];
-            }
+
+function subarraySum(arr, n, s) {
+    let start = 0;
+    let runningSum = arr[0];
+    for (let end = 1; end <= n; end++) {
+        while(runningSum > s && start < end - 1) {
+            runningSum -= arr[start];
+            start++
         }
-        return [-1]
+        if (runningSum === s) return [start + 1, end];
+        if (end < n) {
+            runningSum += arr[end];
+        }
     }
+    return [-1]
 }
