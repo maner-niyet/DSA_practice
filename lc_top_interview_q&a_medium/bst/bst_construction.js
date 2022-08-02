@@ -1,4 +1,6 @@
-
+//Approach: Binary Search
+//Average: O(logn) time | O(1) space 
+//Worst:      O(n) time | O(1) space
 class BST {
     constructor(value) {
         this.value = value;
