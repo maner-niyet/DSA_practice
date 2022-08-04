@@ -7,10 +7,9 @@ Return a string of the unique letters in the new alien language sorted in lexico
 A string s is lexicographically smaller than a string t if at the first letter where they differ, the letter in s comes before the letter in t in the alien language. If the first min(s.length, t.length) letters are the same, then s is smaller if and only if s.length < t.length. 
 https://leetcode.com/problems/alien-dictionary/*/
 
-
 //Solution 1
 //Approach: Topological Sort, DFS, post order traversal
-//Time: O(v + e) | Space: O(v + e)
+//Time: O(C) | Space: O(1) 
 const buildAdjacencyList = words => {
     const adj = {};
     for (const word of words) {
