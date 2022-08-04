@@ -5,7 +5,7 @@ Return the fewest number of coins that you need to make up that amount. If that 
 You may assume that you have an infinite number of each kind of coin.
 https://leetcode.com/problems/coin-change/ */
 
-//Solution 2
+//Solution 1
 //Approach: DP
 //Time: O(n * m) | Space: O(m) where n is number of coins, m is amount of money
 const coinChange = (coins, amount) => {
