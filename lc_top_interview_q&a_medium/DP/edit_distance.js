@@ -8,7 +8,7 @@ You have the following three operations permitted on a word:
 //Solution 1
 //Approach: DP
 //Time: O(n * m) | Space: O(n * m) 
-//where n is word1.length, n is word2.length
+//where n is word1.length, m is word2.length
 const minDistance = (word1, word2) => {
     if (!word1.length) return word2.length;
     if (!word2.length) return word1.length;
