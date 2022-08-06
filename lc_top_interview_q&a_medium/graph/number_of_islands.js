@@ -35,7 +35,7 @@ const explore = (row, col, grid, visited) => {
 
 //Solution 2
 //Approach: BFS
-//Time: O(n * m) | Space: O(min(n, m)) 
+//Time: O(n * m) | Space: O(Math.min(n, m)) 
 //where n is width, m is height
 //this image explains the space complexity https://imgur.com/gallery/M58OKvB
 const numIslands1 = grid => {
