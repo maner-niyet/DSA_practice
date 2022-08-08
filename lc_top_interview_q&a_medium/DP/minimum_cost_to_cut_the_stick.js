@@ -85,3 +85,23 @@ var minCost = function(n, cuts) {
     return dp[1][cutsLen];
 };
 
+//Solution 4
+//Approach: recursion + memoization
+//Time: O(m^3) | Space: O(m^2)
+var minCost = function(n, cuts) {
+    const dp = Array(cuts.length + 1).fill(0).map(el => Array(cuts.length +1).fill(-1));
+    cuts.sort((a, b) => a- b);
+    const solve = (startStick, endStick, left, right) => {
+        if (left > right) return 0;
+        let cost = Infinity;
+        if (dp[left][right] > -1) return dp[left][right];
+        for (let i = left; i <=right; i++) {
+            let leftCost = solve(startStick, cuts[i], left, i - 1);
+            let rightCost = solve(cuts[i], endStick, i + 1, right);
+            let currentCost = endStick - startStick + leftCost + rightCost;
+            cost = Math.min(cost, currentCost)
+        }
+        return dp[left][right] = cost;
+    }
+    return solve(0, n, 0, cuts.length - 1)
+};
