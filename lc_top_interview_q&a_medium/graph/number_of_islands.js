@@ -31,14 +31,48 @@ const explore = (row, col, grid, visited) => {
     explore(row, col - 1, grid, visited);
     explore(row, col + 1, grid, visited);
     return 1;
-}   
+}  
 
 //Solution 2
+//Approach: DFS
+//Time: O(n * m) | Space: O(1) 
+//where n is width, m is height
+var numIslands1 = function(grid) {
+    let numOfIslands = 0;
+    const rows = grid.length;
+    const cols = grid[0].length;
+    
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            if (grid[row][col] === "1") {
+                numOfIslands += explore(grid, row, col)
+            }
+        }
+    }
+    return numOfIslands
+};
+
+const explore1 = (grid, row, col) => {
+    const rowInbound = row >= 0 && row < grid.length;
+    const colInbound = col >= 0 && col < grid[0].length;
+    
+    if (!rowInbound || !colInbound) return 0;
+    if (grid[row][col] === "0") return 0;
+    grid[row][col] = "0";
+    
+    explore1(grid, row + 1, col);
+    explore1(grid, row - 1, col);
+    explore1(grid, row, col + 1);
+    explore1(grid, row, col - 1);
+    return 1;
+}
+
+//Solution 3
 //Approach: BFS
 //Time: O(n * m) | Space: O(Math.min(n, m)) 
 //where n is width, m is height
 //this image explains the space complexity https://imgur.com/gallery/M58OKvB
-const numIslands1 = grid => {
+const numIslands2 = grid => {
     let islandCounter = 0; 
     const rows = grid.length, 
           cols = grid[0].length,
