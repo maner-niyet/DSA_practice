@@ -6,16 +6,16 @@ https://leetcode.com/problems/longest-increasing-subsequence/ */
 //Approach: DP
 //Time: O(n^2) | Space: O(n)
 
-var lengthOfLIS = function(nums) {
-    const LIS = Array(nums.length).fill(1);
-    for(let i = nums.length - 1; i >= 0; i--) {
+const lengthOfLIS = nums => {
+    const maxLengths = Array(nums.length).fill(1);
+    for (let i = 1; i < nums.length; i++) {
         let currentNum = nums[i];
-        for (let j = i; j < nums.length; j++) {
+        for (let j = 0; j < i; j++) {
             let otherNum = nums[j];
-            if (currentNum < otherNum) {
-                LIS[i] = Math.max(1 + LIS[j], LIS[i])
-            } 
+            if (currentNum > otherNum) {
+                maxLengths[i] = Math.max(maxLengths[i], maxLengths[j] + 1);
+            }
         }
     }
-    return Math.max(...LIS)
+    return Math.max(...maxLengths)
 };
